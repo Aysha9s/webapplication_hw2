@@ -23,6 +23,7 @@ def conv(request,temp,type):
 def area_calc(request):
     return render (request, "area_calc.html")  
 def multi(request,num1,num2):
+    multi(request, request.GET["width"],request.GET["height"])
     num1={}
     num2={}
     num1["w"]=request.GET["width"]
