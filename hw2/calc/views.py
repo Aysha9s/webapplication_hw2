@@ -1,6 +1,5 @@
 from django.shortcuts import render
 
-
 # Create your views here.
 def no_path(request):
     return render (request, "404.html") 
@@ -16,9 +15,9 @@ def conv(request,temp,type):
     type={}
     t={}
     if temp== float(request.GET["numt"]) and type== request.GET["tempretur"]:   
-        t["result"]= (temp*1.8)+32
+        t["result"]= (temp*9/5)+32
     else:
-        t["result"]= (temp-32)/1.8
+        t["result"]= (temp-32)*5/9
     return render (request, "temp_result.html",context=t)
     
 def area_calc(request):
@@ -26,10 +25,12 @@ def area_calc(request):
 def multi(request,num1,num2):
     num1={}
     num2={}
+    num1["w"]=request.GET["width"]
+    num2["h"]=request.GET["height"]
     r={}
     if num1== request.GET["width"] and num2== request.GET["height"]:
-        r["result"]= num1*num2
-    return render (request, "area_result.html",context=r)
+        r["result"]= num1["w"]*num2["h"]
+    return render (request, "area_result.html",context=r.get["result"])
 
 def calculator(request):
      return render (request, "calculator.html") 

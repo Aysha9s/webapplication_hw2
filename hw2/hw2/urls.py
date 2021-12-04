@@ -27,7 +27,7 @@ urlpatterns = [
     path('temp/', temp_calc),
     path('temp/conv/', conv),
     path('area/', area_calc),
-    path('area/multi/<int:width>/<int:height>',multi),
+    path('area/multi/',multi),
     path('calc/', calculator),
     path('calc/apply/',apply)
 ]
